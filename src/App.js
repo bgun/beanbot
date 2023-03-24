@@ -4,7 +4,7 @@ import Dictaphone from './Dictaphone';
 import MessageFeed from './MessageFeed'
 import Speech from 'speak-tts'
 import { ChatGPTAPI } from 'chatgpt-web'
-
+import debounce from 'lodash.debounce';
 
 
 class App extends React.Component {
@@ -32,22 +32,43 @@ class App extends React.Component {
     })
 
     // Setup ChatGPT object
+    this.chatbot = new ChatGPTAPI({
+      apiKey: process.env.REACT_APP_OPENAI_API_KEY
+    });
+
+    this.debouncedInitialize = debounce(() => {
+      console.log("Initializing Beanbot");
+      this.initializeBot();
+    }, 1000);
+  }
+
+  componentDidMount() {
+    this.debouncedInitialize();
+  }
+
+  initializeBot() {
+    const t = this;
+    const initPhrase = "You are a helpful travel robot named Bean. All of your answers should be shorter than 100 words. Please respond simply with 'Hi, I'm Bean' when you are ready.";
+    async function openaiCall() {
+      const res = await t.chatbot.sendMessage(initPhrase)
+      console.log(res.text);
+      t.receivedBotResponse(res.text);
+    }
+    openaiCall();
   }
 
   getBotAnswer(humanQuery) {
     const t = this;
     async function openaiCall() {
-      const chatbot = new ChatGPTAPI({
-        apiKey: process.env.REACT_APP_OPENAI_API_KEY
-      })
-      const res = await chatbot.sendMessage(humanQuery)
-      console.log(t, res.text);
+      const res = await t.chatbot.sendMessage(humanQuery)
+      console.log(res.text);
       t.receivedBotResponse(res.text);
     }
     openaiCall();
   }
 
   readAloud = (message) => {
+    console.log("Speaking");
     this.speech.speak({
       text: message,
       queue: false, // current speech will be interrupted,
@@ -72,7 +93,7 @@ class App extends React.Component {
     // display our dictation as a message in the transcript
     this.setState({ messages: [...this.state.messages, {
       cssClass: cssClass,
-      text: text 
+      text: text
     }] });
   }
   

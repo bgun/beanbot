@@ -17,8 +17,12 @@ const Dictaphone = (props) => {
   function handleRelease() {
     setTimeout(() => {
       SpeechRecognition.stopListening();
-      console.log(transcript);
-      props.receivedDictation(transcript);
+      if (transcript > "") {
+        console.log("Transcript: ", transcript);
+        props.receivedDictation(transcript);
+      } else {
+        console.log("No dictation received");
+      }
       resetTranscript();
     },1000);
   }

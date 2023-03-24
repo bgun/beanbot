@@ -1,10 +1,13 @@
 html, body {
+  background-color: #282c34;
   font-family: Segoe UI, Frutiger, Dejavu Sans, Helvetica Neue, Arial, sans-serif;
   font-size: 16px;
 }
 
 .App {
-  background-color: #282c34;
+  background: #000;
+  margin: 0 auto;
+  max-width: 500px;
   text-align: center;
 }
 
@@ -40,30 +43,32 @@ html, body {
 }
 
 .MessageFeed li {
-  border: 1px solid #CCC;
+  background: #222;
   color: #EEE;
   font-size: 1rem;
   list-style: none;
   margin: 1em;
-  padding: 1em;
+  padding: 1.5em;
 }
 .MessageFeed li.query {
+  margin-bottom: 0.2em;
 }
 .MessageFeed li.response {
   font-style: italic;
+  margin-top: 0.2em;
 }
 
 .dictaphone {
   display: block;
   position: fixed;
-    left: 0;
     bottom: 0;
   height: 4em;
+  max-width: 500px;
   width: 100%;
 }
 
 .dictaphone button {
-  background: #269;
+  background: #15A;
   border: 0;
   color: #eee;
   display: block;
@@ -72,9 +77,8 @@ html, body {
   width: 100%;
   user-select: none;
 }
-.dictaphone button:active,
-.dictaphone button:hover {
-  background: #37A;
+.dictaphone button:active {
+  background: #37C;
 }
 
 #mic-light {
