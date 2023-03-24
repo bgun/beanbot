@@ -70,10 +70,10 @@ class App extends React.Component {
   }
 
   readAloud = (message) => {
-    console.log("Speaking");
+    console.log("Speaking: "+message);
     this.speech.speak({
       text: message,
-      queue: false, // current speech will be interrupted,
+      queue: false, // current speech will be interrupted
       }).then(() => {
           console.log("Success!");
       }).catch(e => {

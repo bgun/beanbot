@@ -22,7 +22,7 @@ const Dictaphone = (props) => {
         props.receivedDictation(transcript);
         resetTranscript();
       } else {
-        console.log("No dictation received");
+        alert("No dictation received");
       }
     },1000);
   }
