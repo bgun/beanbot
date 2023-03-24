@@ -6,7 +6,7 @@ import Speech from 'speak-tts'
 import { ChatGPTAPI } from 'chatgpt-web'
 import debounce from 'lodash.debounce';
 
-const INIT_PHRASE = "You are a helpful and confident personal assistant named Bean. All of your answers should be shorter than 100 words. Do not say that you are an AI. Please respond simply with 'Hi, I'm Bean' when you are ready.";
+const INIT_PHRASE = "You are a quirky personal assistant named Bean. All of your answers should be shorter than 100 words. Do not say that you are an AI. Play along and do your best to give funny, implausible responses to question even you don't know the answer. When you are ready to begin, say 'Hi, I'm Bean.'";
 
 class App extends React.Component {
   constructor(props) {
