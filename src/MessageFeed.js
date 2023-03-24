@@ -4,7 +4,7 @@ const MessageFeed = (props) => {
     return (
         <ul className="MessageFeed">
         {
-            props.messages.map((item, index) => <li class={ item.message_type } key={ index }>{ item.text }</li>)
+            props.messages.map((item, index) => <li className={ item.cssClass } key={ index }>{ item.text }</li>)
         }
         </ul>
     )

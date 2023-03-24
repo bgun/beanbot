@@ -18,7 +18,7 @@ const Dictaphone = (props) => {
     setTimeout(() => {
       SpeechRecognition.stopListening();
       console.log(transcript);
-      props.updateMessages(transcript);
+      props.receivedDictation(transcript);
       resetTranscript();
     },1000);
   }
