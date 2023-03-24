@@ -14,8 +14,8 @@ class App extends React.Component {
       messages: []
     };
 
-    console.log("Setting up speech");
     // Setup speech object
+    console.log("Setting up speech");
     this.speech = new Speech()
     this.speech.init({
       'volume': 1,
@@ -31,7 +31,7 @@ class App extends React.Component {
       console.error("An error occured while initializing : ", e)
     })
 
-    console.log("secrets", process.env.secrets);
+    console.log("env", process.env);
 
     // Setup ChatGPT object
     this.chatbot = new ChatGPTAPI({
@@ -41,7 +41,7 @@ class App extends React.Component {
     this.debouncedInitialize = debounce(() => {
       console.log("Initializing Beanbot");
       this.initializeBot();
-    }, 1000);
+    }, 1000)
   }
 
   componentDidMount() {
