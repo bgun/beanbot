@@ -62,7 +62,7 @@ html, body {
 .dictaphone {
   display: block;
   position: fixed;
-    bottom: 0;
+    bottom: 1em;
   height: 4em;
   max-width: 500px;
   width: 100%;
