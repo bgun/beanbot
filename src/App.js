@@ -31,6 +31,8 @@ class App extends React.Component {
       console.error("An error occured while initializing : ", e)
     })
 
+    console.log("secrets", process.env.secrets);
+
     // Setup ChatGPT object
     this.chatbot = new ChatGPTAPI({
       apiKey: process.env.REACT_APP_OPENAI_API_KEY
