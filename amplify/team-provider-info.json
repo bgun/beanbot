@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-beanbot-dev-30323-authRole",
+      "UnauthRoleArn": "arn:aws:iam::255489627916:role/amplify-beanbot-dev-30323-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::255489627916:role/amplify-beanbot-dev-30323-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-beanbot-dev-30323-deployment",
+      "UnauthRoleName": "amplify-beanbot-dev-30323-unauthRole",
+      "StackName": "amplify-beanbot-dev-30323",
+      "StackId": "arn:aws:cloudformation:us-east-1:255489627916:stack/amplify-beanbot-dev-30323/f85eca90-ca11-11ed-8871-0e1068187879",
+      "AmplifyAppId": "d1umq0f18wk088"
+    }
+  }
+}
