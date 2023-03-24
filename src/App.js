@@ -19,15 +19,13 @@ class App extends React.Component {
     console.log("Setting up speech");
     this.speech = new Speech()
     this.speech.init({
-        'volume': 0.5,
-        'lang': 'en-GB',
-        'rate': 1,
-        'pitch': 1
-        //'voice':'Google UK English Male'
-        //'splitSentences': true
+      'volume': 0.75,
+      'lang': 'en-GB',
+      //'splitSentences': true
     }).then((data) => {
       // The "data" object contains the list of available voices and the voice synthesis params
       console.log("Speech is ready, voices are available", data)
+      this.speech.setVoice('Daniel');
     }).catch(e => {
       alert("An error occured while initializing speech : " + e)
     })
@@ -73,12 +71,12 @@ class App extends React.Component {
     console.log("Speaking: "+message);
     this.speech.speak({
       text: message,
-      queue: false, // current speech will be interrupted
-      }).then(() => {
-          console.log("Success!");
-      }).catch(e => {
-          alert("An error occurred while speaking:" + e);
-      })
+      queue: false // current speech will be interrupted
+    }).then((data) => {
+        console.log("Success!", data);
+    }).catch(e => {
+        alert("An error occurred while speaking:" + e);
+    })
   }
 
   receivedBotResponse = (botResponse) => {
@@ -102,7 +100,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <header><h1>beanbot 1.0</h1></header>
+        <header><h1>🫘 beanbot 1.0</h1></header>
         <MessageFeed messages={ this.state.messages } />
         <Dictaphone receivedDictation ={ this.receivedDictation } />
       </div>
