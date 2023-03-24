@@ -20,10 +20,10 @@ const Dictaphone = (props) => {
       if (transcript > "") {
         console.log("Transcript: ", transcript);
         props.receivedDictation(transcript);
+        resetTranscript();
       } else {
         console.log("No dictation received");
       }
-      resetTranscript();
     },1000);
   }
 

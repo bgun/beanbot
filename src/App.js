@@ -29,7 +29,7 @@ class App extends React.Component {
       // The "data" object contains the list of available voices and the voice synthesis params
       console.log("Speech is ready, voices are available", data)
     }).catch(e => {
-      alert("An error occured while initializing speech : ", e)
+      alert("An error occured while initializing speech : " + e)
     })
 
     console.log("env", process.env);
@@ -77,7 +77,7 @@ class App extends React.Component {
       }).then(() => {
           console.log("Success!");
       }).catch(e => {
-          console.error("An error occurred :", e);
+          alert("An error occurred while speaking:" + e);
       })
   }
 
