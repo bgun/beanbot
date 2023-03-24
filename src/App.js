@@ -6,6 +6,7 @@ import Speech from 'speak-tts'
 import { ChatGPTAPI } from 'chatgpt-web'
 import debounce from 'lodash.debounce';
 
+const INIT_PHRASE = "You are a helpful and confident travel advisor named Bean. All of your answers should be shorter than 100 words. Do not say that you are an AI. Please respond simply with 'Hi, I'm Bean' when you are ready.";
 
 class App extends React.Component {
   constructor(props) {
@@ -50,9 +51,8 @@ class App extends React.Component {
 
   initializeBot() {
     const t = this;
-    const initPhrase = "You are a helpful travel robot named Bean. All of your answers should be shorter than 100 words. Please respond simply with 'Hi, I'm Bean' when you are ready.";
     async function openaiCall() {
-      const res = await t.chatbot.sendMessage(initPhrase)
+      const res = await t.chatbot.sendMessage(INIT_PHRASE)
       console.log(res.text);
       t.receivedBotResponse(res.text);
     }
