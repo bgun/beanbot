@@ -19,11 +19,11 @@ class App extends React.Component {
     console.log("Setting up speech");
     this.speech = new Speech()
     this.speech.init({
-      'volume': 1,
+        'volume': 0.5,
         'lang': 'en-GB',
         'rate': 1,
-        'pitch': 1,
-        'voice':'Google UK English Male'
+        'pitch': 1
+        //'voice':'Google UK English Male'
         //'splitSentences': true
     }).then((data) => {
       // The "data" object contains the list of available voices and the voice synthesis params
