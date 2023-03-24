@@ -43,7 +43,7 @@ html, body {
 }
 
 .MessageFeed li {
-  background: #222;
+  background: #123;
   color: #EEE;
   font-size: 1rem;
   list-style: none;
@@ -54,6 +54,7 @@ html, body {
   margin-bottom: 0.2em;
 }
 .MessageFeed li.response {
+  background: #345;
   font-style: italic;
   margin-top: 0.2em;
 }
